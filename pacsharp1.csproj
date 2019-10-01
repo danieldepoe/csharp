@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{ACFBF5ED-C1FF-4165-B69A-B7CB80CCFE98}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>pacsharp1</RootNamespace>
+    <AssemblyName>pacsharp1</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RhinoCommon">
+      <HintPath>..\..\..\..\..\Program Files\Rhino 6\System\RhinoCommon.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="RhinoWindows">
+      <HintPath>..\..\..\..\..\Program Files\Rhino 6\System\RhinoWindows.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Eto">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Rhino 6\System\Eto.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Rhino.UI">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files\Rhino 6\System\Rhino.UI.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Class\Panel.cs" />
+    <Compile Include="Commands\add3points.cs" />
+    <Compile Include="Commands\AddArrowHead.cs" />
+    <Compile Include="Commands\AddLayer.cs" />
+    <Compile Include="Commands\pointvalue.cs" />
+    <Compile Include="Commands\XBrepSelector.cs" />
+    <Compile Include="Commands\XCreateArcs.cs" />
+    <Compile Include="Commands\XCreateBreps.cs" />
+    <Compile Include="Commands\XCreateCurveFromPoints.cs" />
+    <Compile Include="Commands\xCurveSelector.cs" />
+    <Compile Include="Commands\XDivideCurve.cs" />
+    <Compile Include="Commands\XGeneratePanels.cs" />
+    <Compile Include="Commands\XIHaveOptions.cs" />
+    <Compile Include="Commands\XMakeDot.cs" />
+    <Compile Include="Commands\XMakeLinearDimension.cs" />
+    <Compile Include="Commands\XMakeText.cs" />
+    <Compile Include="Commands\XMakeTextLineLength.cs" />
+    <Compile Include="Commands\XMeshBrep.cs" />
+    <Compile Include="Commands\XPanelGenForm.cs" />
+    <Compile Include="Commands\xpointpicker.cs" />
+    <Compile Include="Commands\XPolylineFromPoints.cs" />
+    <Compile Include="Commands\xSelObjectsOnLayer.cs" />
+    <Compile Include="Commands\xSelObjInGroups.cs" />
+    <Compile Include="Commands\XSweepTest.cs" />
+    <Compile Include="Commands\XTower.cs" />
+    <Compile Include="Commands\XTransformation.cs" />
+    <Compile Include="Forms\PanelGenForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\PanelGenForm.Designer.cs">
+      <DependentUpon>PanelGenForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="pacsharp1Command.cs" />
+    <Compile Include="pacsharp1PlugIn.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="course notes\geometry types notes.cs" />
+    <Compile Include="Commands sandbox\selectcurve.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="UsefulFunctions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="EmbeddedResources\plugin-utility.ico" />
+    <EmbeddedResource Include="Forms\PanelGenForm.resx">
+      <DependentUpon>PanelGenForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <PropertyGroup>
+    <PostBuildEvent>Copy "$(TargetPath)" "$(TargetDir)$(ProjectName).rhp"
+Erase "$(TargetPath)"</PostBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <FallbackCulture>en-US</FallbackCulture>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <StartProgram>C:\Program Files\Rhino 6\System\Rhino.exe</StartProgram>
+    <StartArguments>
+    </StartArguments>
+    <StartAction>Program</StartAction>
+  </PropertyGroup>
+</Project>
